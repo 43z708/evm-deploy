@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  nodejs:
+    image: node:18
+    container_name: "nodejs"
+    volumes:
+      - ./src:/src
+    tty: true
+    working_dir: /src/
