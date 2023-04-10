@@ -6,19 +6,23 @@
 
 3. docker compose exec nodejs bash で docker コンテナ内にログインする（src 直下にいることを確認する）
 
-4. package のインストール
+4. package のインストール(初回のみ)
 
 ```
 npm install
 ```
 
-5. コンパイル
+5. トークン名、NFT 名、ティッカーを変更
+   src/contracts/NFT.sol の 11 行目("Token Name", "TICKER")の部分
+   src/contracts/Token.sol の 9 行目("NFT Name", "TICKER")の部分
+
+6. コンパイル
 
 ```
 npx hardhat compile
 ```
 
-6. deploy & explorer(2 回目以降はここからで ok)
+6. deploy & explorer
 
 ## base
 
@@ -30,6 +34,16 @@ npx hardhat run scripts/deploy-nft.ts --network base-testnet
 
 <!-- token -->
 npx hardhat run scripts/deploy-token.ts --network base-testnet
+```
+
+### verify
+
+```
+<!-- nft -->
+npx hardhat verify --contract contracts/NFT.sol:NFT --network base-testnet 生成されたアドレス
+
+<!-- token -->
+npx hardhat verify --contract contracts/Token.sol:Token --network base-testnet 生成されたアドレス
 ```
 
 ### explorer
@@ -48,6 +62,16 @@ npx hardhat run scripts/deploy-nft.ts --network scroll-testnet
 npx hardhat run scripts/deploy-token.ts --network scroll-testnet
 ```
 
+### verify
+
+```
+<!-- nft -->
+npx hardhat verify --contract contracts/NFT.sol:NFT --network scroll-testnet 生成されたアドレス
+
+<!-- token -->
+npx hardhat verify --contract contracts/Token.sol:Token --network scroll-testnet 生成されたアドレス
+```
+
 ### explorer
 
 https://blockscout.scroll.io/
@@ -62,6 +86,16 @@ npx hardhat run scripts/deploy-nft.ts --network taiko-testnet
 
 <!-- token -->
 npx hardhat run scripts/deploy-token.ts --network taiko-testnet
+```
+
+### verify
+
+```
+<!-- nft -->
+npx hardhat verify --contract contracts/NFT.sol:NFT --network taiko-testnet 生成されたアドレス
+
+<!-- token -->
+npx hardhat verify --contract contracts/Token.sol:Token --network taiko-testnet 生成されたアドレス
 ```
 
 ### explorer

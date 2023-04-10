@@ -8,7 +8,6 @@ contract NFT is ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private currentTokenId;
 
-  // Token NameとTICKERを変更する
     constructor() ERC721("NFT Name", "TICKER") {}
 
     function mint(address recipient)
