@@ -1,6 +1,8 @@
 # NFT & Token deploy
 
-## 1. src 直下にて
+## 1. 環境変数の整備
+
+src 直下にて
 
 ```
 cp.env.example .env
@@ -11,9 +13,19 @@ cp.env.example .env
 ※ zkSync のみ GOERLI_RPC と ETHERSCAN_API_KEY が必要であり、IS_ZKSYNC=true にしてください。
 zkSync 以外を実行する場合は IS_ZKSYNC=false にしてください。
 
-## 2. docker compose up -d
+## 2. docker で nodejs コンテナを立ち上げる
 
-## 3. docker compose exec nodejs bash で docker コンテナ内にログインする（src 直下にいることを確認する）
+```
+docker compose up -d
+```
+
+## 3. docker コンテナ内にログインする
+
+```
+docker compose exec nodejs bash
+```
+
+で deploy 等の実行環境である docker コンテナ内にログインする（src 直下にいることを確認する）
 
 ## 4. package のインストール(初回のみ)
 
