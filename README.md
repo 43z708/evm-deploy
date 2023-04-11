@@ -133,6 +133,37 @@ https://explorer.a2.taiko.xyz/
 
 ---
 
+### linea
+
+#### deploy
+
+```
+<!-- nft -->
+npx hardhat run deploy/deploy-nft.ts --network linea-testnet
+
+<!-- token -->
+npx hardhat run deploy/deploy-token.ts --network linea-testnet
+```
+
+#### verify
+
+(1) etherscan でアカウントを作成し、API Key を取得し、.env に ETHERSCAN_API_KEY=で貼り付け
+(2) 下記コマンド実行
+
+```
+<!-- nft -->
+npx hardhat verify --contract contracts/NFT.sol:NFT --network linea-testnet 生成されたアドレス
+
+<!-- token -->
+npx hardhat verify --contract contracts/Token.sol:Token --network linea-testnet 生成されたアドレス
+```
+
+#### explorer
+
+https://explorer.goerli.linea.build/
+
+---
+
 ### zkSync
 
 ※ .env の IS_ZKSYNC=true になっていることを確認すること！
@@ -148,9 +179,6 @@ npx hardhat deploy-zksync --script deploy-token-zk.ts --network zksync-testnet
 ```
 
 #### verify
-
-(1) etherscan でアカウントを作成し、API Key を取得し、.env に ETHERSCAN_API_KEY=で貼り付け
-(2) 下記コマンド実行
 
 ```
 <!-- nft -->

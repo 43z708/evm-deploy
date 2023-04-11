@@ -26,19 +26,20 @@ const config: HardhatUserConfig = {
 		goerli: {
 			url: process.env.GOERLI_RPC as string, // URL of the Ethereum Web3 RPC (optional)
 		},
-		// for testnet
 		"base-testnet": {
 			url: "https://goerli.base.org",
 			accounts: [process.env.WALLET_KEY as string],
 		},
-		// for testnet
 		"scroll-testnet": {
 			url: "https://alpha-rpc.scroll.io/l2",
 			accounts: [process.env.WALLET_KEY as string],
 		},
-		// for testnet
 		"taiko-testnet": {
 			url: "https://rpc.a2.taiko.xyz",
+			accounts: [process.env.WALLET_KEY as string],
+		},
+		"linea-testnet": {
+			url: "https://rpc.goerli.linea.build",
 			accounts: [process.env.WALLET_KEY as string],
 		},
 		"zksync-testnet": {
@@ -56,6 +57,7 @@ const config: HardhatUserConfig = {
 			"base-testnet": "PLACEHOLDER_STRING",
 			"scroll-testnet": "PLACEHOLDER_STRING",
 			"taiko-testnet": "PLACEHOLDER_STRING",
+			"linea-testnet": process.env.ETHERSCAN_API_KEY as string,
 			// "zksync-testnet": process.env.ETHERSCAN_API_KEY as string,
 		},
 		customChains: [
@@ -81,6 +83,14 @@ const config: HardhatUserConfig = {
 				urls: {
 					apiURL: "https://explorer.a2.taiko.xyz/api",
 					browserURL: "https://explorer.a2.taiko.xyz",
+				},
+			},
+			{
+				network: "linea-testnet",
+				chainId: 59140,
+				urls: {
+					apiURL: "https://explorer.goerli.linea.build/api",
+					browserURL: "https://explorer.goerli.linea.build/",
 				},
 			},
 		],
