@@ -75,6 +75,8 @@ npx hardhat verify --contract contracts/Token.sol:Token --network base-testnet ç
 
 https://goerli.basescan.org
 
+---
+
 ### scroll
 
 #### deploy
@@ -101,6 +103,8 @@ npx hardhat verify --contract contracts/Token.sol:Token --network scroll-testnet
 
 https://blockscout.scroll.io/
 
+---
+
 ### taiko
 
 #### deploy
@@ -126,6 +130,8 @@ npx hardhat verify --contract contracts/Token.sol:Token --network taiko-testnet 
 #### explorer
 
 https://explorer.a2.taiko.xyz/
+
+---
 
 ### zkSync
 
