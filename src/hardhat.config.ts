@@ -1,19 +1,26 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox";
-import "@nomiclabs/hardhat-etherscan";
-import "@matterlabs/hardhat-zksync-deploy";
-import "@matterlabs/hardhat-zksync-solc";
-import "@matterlabs/hardhat-zksync-verify";
-
 require("dotenv").config();
 
-const config = {
+import { HardhatUserConfig } from "hardhat/config";
+import "@nomicfoundation/hardhat-toolbox";
+
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
+
+(async () => {
+	if (process.env.IS_ZKSYNC === "true") {
+		await import("@matterlabs/hardhat-zksync-verify");
+	} else {
+		await import("@nomiclabs/hardhat-etherscan");
+	}
+})();
+
+const config: HardhatUserConfig = {
 	solidity: {
 		version: "0.8.17",
 	},
 	networks: {
 		hardhat: {
-			zksync: process.env.IS_ZKSYNC_COMPILE === "TRUE", // enables zksync in hardhat local network
+			zksync: process.env.IS_ZKSYNC === "true", // enables zksync in hardhat local network
 		},
 
 		goerli: {
@@ -49,7 +56,7 @@ const config = {
 			"base-testnet": "PLACEHOLDER_STRING",
 			"scroll-testnet": "PLACEHOLDER_STRING",
 			"taiko-testnet": "PLACEHOLDER_STRING",
-			"zksync-testnet": process.env.ETHERSCAN_API_KEY as string,
+			// "zksync-testnet": process.env.ETHERSCAN_API_KEY as string,
 		},
 		customChains: [
 			{
