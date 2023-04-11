@@ -8,7 +8,7 @@ contract NFT is ERC721 {
     using Counters for Counters.Counter;
     Counters.Counter private currentTokenId;
 
-    constructor() ERC721("NFT Name", "TICKER") {}
+    constructor() ERC721("Kiyo", "KIYO") {}
 
     function mint(address recipient)
         public
