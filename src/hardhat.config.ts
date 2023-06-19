@@ -35,7 +35,7 @@ const config: HardhatUserConfig = {
 			accounts: [process.env.WALLET_KEY as string],
 		},
 		"taiko-testnet": {
-			url: "https://rpc.a2.taiko.xyz",
+			url: "https://rpc.test.taiko.xyz",
 			accounts: [process.env.WALLET_KEY as string],
 		},
 		"linea-testnet": {

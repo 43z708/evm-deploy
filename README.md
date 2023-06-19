@@ -166,7 +166,8 @@ https://explorer.goerli.linea.build/
 
 ### zkSync
 
-※ .env の IS_ZKSYNC=true になっていることを確認すること！
+※ .env の IS_ZKSYNC=true になっていることを確認して、
+npx hardhat compile でコンパイルしなおすこと！
 
 #### deploy
 
